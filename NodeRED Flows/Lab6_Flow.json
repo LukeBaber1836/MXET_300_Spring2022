@@ -1,0 +1,737 @@
+[
+    {
+        "id": "282275c6.b3fbaa",
+        "type": "tab",
+        "label": "DC Jack Voltage",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "bb7d51d0.c5feb",
+        "type": "tab",
+        "label": "LiDAR",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a313a88e.2c2148",
+        "type": "tab",
+        "label": "Cartesian",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "abc314b4.952fa8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "Arial,Arial,Helvetica,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#1da7ed",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#1da7ed",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#1da7ed",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#64c3f3",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#1da7ed",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "d9437511.d9d008",
+        "type": "ui_tab",
+        "name": "System Info",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "565bb21c.e81acc",
+        "type": "ui_group",
+        "name": "Battery Voltage",
+        "tab": "d9437511.d9d008",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "af4b7aa5.f1ecc8",
+        "type": "ui_group",
+        "name": "LiDAR",
+        "tab": "d9437511.d9d008",
+        "order": 3,
+        "disp": true,
+        "width": "10",
+        "collapse": false
+    },
+    {
+        "id": "f8559b06.b3d7d8",
+        "type": "ui_group",
+        "name": "Cartesian",
+        "tab": "d9437511.d9d008",
+        "order": 4,
+        "disp": true,
+        "width": "10",
+        "collapse": false
+    },
+    {
+        "id": "de438a0e.88a3b8",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 2,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "75786978.3eb388",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 3,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "44d463e0.9ad5dc",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 4,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "bd52051a.3edcd8",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 5,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "da771248.0799c",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 7,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "f1fae72d.cd8cb8",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "d64853fb.b51e8",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 9,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "85a69344.a2c26",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 10,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "6e72267b.cb2bf8",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "f8559b06.b3d7d8",
+        "order": 2,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "809f8cd7.15f8a",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "f8559b06.b3d7d8",
+        "order": 3,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "378a91b3.970dfe",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "f8559b06.b3d7d8",
+        "order": 4,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "96666c43.4feed",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "f8559b06.b3d7d8",
+        "order": 5,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "fce24eba.20e4e",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "f8559b06.b3d7d8",
+        "order": 7,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "66db3619.5767f8",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "f8559b06.b3d7d8",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "dbc03884.165a08",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "f8559b06.b3d7d8",
+        "order": 9,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "7b23338c.f5a41c",
+        "type": "ui_spacer",
+        "z": "a313a88e.2c2148",
+        "name": "spacer",
+        "group": "f8559b06.b3d7d8",
+        "order": 10,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "cd6376bb.b46188",
+        "type": "inject",
+        "z": "282275c6.b3fbaa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "a5d05a57.6fe778"
+            ]
+        ]
+    },
+    {
+        "id": "a5d05a57.6fe778",
+        "type": "file in",
+        "z": "282275c6.b3fbaa",
+        "name": "DC Jack Voltage",
+        "filename": "/tmp/Voltage",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 400,
+        "y": 160,
+        "wires": [
+            [
+                "b474f43e.edc758"
+            ]
+        ]
+    },
+    {
+        "id": "b474f43e.edc758",
+        "type": "ui_gauge",
+        "z": "282275c6.b3fbaa",
+        "name": "DC Jack Voltage",
+        "group": "565bb21c.e81acc",
+        "order": 1,
+        "width": 6,
+        "height": 6,
+        "gtype": "gage",
+        "title": "DC Jack Voltage",
+        "label": "Volts",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "12",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "9.5",
+        "seg2": "10.75",
+        "x": 650,
+        "y": 160,
+        "wires": [],
+        "icon": "font-awesome/fa-battery"
+    },
+    {
+        "id": "5073fbd.65f5e04",
+        "type": "inject",
+        "z": "bb7d51d0.c5feb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 160,
+        "wires": [
+            [
+                "eaae34c6.9039d8"
+            ]
+        ]
+    },
+    {
+        "id": "eaae34c6.9039d8",
+        "type": "file in",
+        "z": "bb7d51d0.c5feb",
+        "name": "Angle",
+        "filename": "/tmp/Angle",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 430,
+        "y": 160,
+        "wires": [
+            [
+                "2483d597.30ce2a"
+            ]
+        ]
+    },
+    {
+        "id": "2483d597.30ce2a",
+        "type": "ui_gauge",
+        "z": "bb7d51d0.c5feb",
+        "name": "",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 1,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Angle",
+        "label": "degrees",
+        "format": "{{value}}",
+        "min": "-180",
+        "max": "180",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "9.5",
+        "seg2": "10.75",
+        "x": 670,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "cd58f207.1d8fa",
+        "type": "inject",
+        "z": "a313a88e.2c2148",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "32ac3d6.dff66c2"
+            ]
+        ]
+    },
+    {
+        "id": "32ac3d6.dff66c2",
+        "type": "file in",
+        "z": "a313a88e.2c2148",
+        "name": "dX",
+        "filename": "/tmp/dX",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 350,
+        "y": 160,
+        "wires": [
+            [
+                "d236a0c9.fc06e"
+            ]
+        ]
+    },
+    {
+        "id": "d236a0c9.fc06e",
+        "type": "ui_chart",
+        "z": "a313a88e.2c2148",
+        "name": "",
+        "group": "f8559b06.b3d7d8",
+        "order": 1,
+        "width": 5,
+        "height": 4,
+        "label": "dX (m)",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "meters",
+        "dot": false,
+        "ymin": "-1",
+        "ymax": "1",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 570,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb153b89.68d728",
+        "type": "inject",
+        "z": "a313a88e.2c2148",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "8f025a30.28ae98"
+            ]
+        ]
+    },
+    {
+        "id": "8f025a30.28ae98",
+        "type": "file in",
+        "z": "a313a88e.2c2148",
+        "name": "dY",
+        "filename": "/tmp/dY",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "d62f1d75.d2a94"
+            ]
+        ]
+    },
+    {
+        "id": "d62f1d75.d2a94",
+        "type": "ui_chart",
+        "z": "a313a88e.2c2148",
+        "name": "",
+        "group": "f8559b06.b3d7d8",
+        "order": 6,
+        "width": 5,
+        "height": 4,
+        "label": "dY (m)",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "meters",
+        "dot": false,
+        "ymin": "-1",
+        "ymax": "1",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 570,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc820e09.34269",
+        "type": "inject",
+        "z": "bb7d51d0.c5feb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 200,
+        "wires": [
+            [
+                "28740baf.001494"
+            ]
+        ]
+    },
+    {
+        "id": "28740baf.001494",
+        "type": "file in",
+        "z": "bb7d51d0.c5feb",
+        "name": "Distance",
+        "filename": "/tmp/Distance",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 440,
+        "y": 200,
+        "wires": [
+            [
+                "ae1e87c1.20c248"
+            ]
+        ]
+    },
+    {
+        "id": "ae1e87c1.20c248",
+        "type": "ui_chart",
+        "z": "bb7d51d0.c5feb",
+        "name": "",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 6,
+        "width": 5,
+        "height": 4,
+        "label": "Distance (m)",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 650,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    }
+]

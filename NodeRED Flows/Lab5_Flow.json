@@ -1,0 +1,702 @@
+[
+    {
+        "id": "282275c6.b3fbaa",
+        "type": "tab",
+        "label": "DC Jack Voltage",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "bb7d51d0.c5feb",
+        "type": "tab",
+        "label": "Robot Velocity",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a313a88e.2c2148",
+        "type": "tab",
+        "label": "Wheel Velocity",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "abc314b4.952fa8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "Arial,Arial,Helvetica,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#1da7ed",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#1da7ed",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#1da7ed",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#64c3f3",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#1da7ed",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "d9437511.d9d008",
+        "type": "ui_tab",
+        "name": "System Info",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "565bb21c.e81acc",
+        "type": "ui_group",
+        "name": "Battery Voltage",
+        "tab": "d9437511.d9d008",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "af4b7aa5.f1ecc8",
+        "type": "ui_group",
+        "name": "Forward Velocity",
+        "tab": "d9437511.d9d008",
+        "order": 3,
+        "disp": true,
+        "width": 10,
+        "collapse": false
+    },
+    {
+        "id": "f8559b06.b3d7d8",
+        "type": "ui_group",
+        "name": "Angular Velocity",
+        "tab": "d9437511.d9d008",
+        "order": 4,
+        "disp": true,
+        "width": 10,
+        "collapse": false
+    },
+    {
+        "id": "cd6376bb.b46188",
+        "type": "inject",
+        "z": "282275c6.b3fbaa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "a5d05a57.6fe778"
+            ]
+        ]
+    },
+    {
+        "id": "a5d05a57.6fe778",
+        "type": "file in",
+        "z": "282275c6.b3fbaa",
+        "name": "DC Jack Voltage",
+        "filename": "/tmp/dcVoltage",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 400,
+        "y": 160,
+        "wires": [
+            [
+                "b474f43e.edc758"
+            ]
+        ]
+    },
+    {
+        "id": "b474f43e.edc758",
+        "type": "ui_gauge",
+        "z": "282275c6.b3fbaa",
+        "name": "DC Jack Voltage",
+        "group": "565bb21c.e81acc",
+        "order": 1,
+        "width": 6,
+        "height": 6,
+        "gtype": "gage",
+        "title": "DC Jack Voltage",
+        "label": "Volts",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "12",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "9.5",
+        "seg2": "10.75",
+        "x": 650,
+        "y": 160,
+        "wires": [],
+        "icon": "font-awesome/fa-battery"
+    },
+    {
+        "id": "5073fbd.65f5e04",
+        "type": "inject",
+        "z": "bb7d51d0.c5feb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 160,
+        "wires": [
+            [
+                "eaae34c6.9039d8"
+            ]
+        ]
+    },
+    {
+        "id": "eaae34c6.9039d8",
+        "type": "file in",
+        "z": "bb7d51d0.c5feb",
+        "name": "Forward Velocity",
+        "filename": "/tmp/xDot",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "2483d597.30ce2a",
+                "cfb9874d.11f398"
+            ]
+        ]
+    },
+    {
+        "id": "2483d597.30ce2a",
+        "type": "ui_gauge",
+        "z": "bb7d51d0.c5feb",
+        "name": "X Dot",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 1,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "X Dot",
+        "label": "m/sec",
+        "format": "{{value}}",
+        "min": "-0.4",
+        "max": "0.4",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "9.5",
+        "seg2": "10.75",
+        "x": 690,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "cd58f207.1d8fa",
+        "type": "inject",
+        "z": "a313a88e.2c2148",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "32ac3d6.dff66c2"
+            ]
+        ]
+    },
+    {
+        "id": "32ac3d6.dff66c2",
+        "type": "file in",
+        "z": "a313a88e.2c2148",
+        "name": "Left Phi",
+        "filename": "/tmp/leftPhi",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 360,
+        "y": 160,
+        "wires": [
+            [
+                "b21b10f9.20711",
+                "d236a0c9.fc06e"
+            ]
+        ]
+    },
+    {
+        "id": "b21b10f9.20711",
+        "type": "ui_gauge",
+        "z": "a313a88e.2c2148",
+        "name": "Left Phi",
+        "group": "f8559b06.b3d7d8",
+        "order": 1,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Rotational Velocity",
+        "label": "Volts",
+        "format": "{{value}}",
+        "min": "-1.57",
+        "max": "1.57",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "9.5",
+        "seg2": "10.75",
+        "x": 600,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "cfb9874d.11f398",
+        "type": "ui_chart",
+        "z": "bb7d51d0.c5feb",
+        "name": "",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 3,
+        "width": 5,
+        "height": 4,
+        "label": "X Dot",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-0.75",
+        "ymax": "0.75",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 690,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d236a0c9.fc06e",
+        "type": "ui_chart",
+        "z": "a313a88e.2c2148",
+        "name": "",
+        "group": "f8559b06.b3d7d8",
+        "order": 3,
+        "width": 5,
+        "height": 4,
+        "label": "Left Phi",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 600,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb153b89.68d728",
+        "type": "inject",
+        "z": "a313a88e.2c2148",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 280,
+        "wires": [
+            [
+                "8f025a30.28ae98"
+            ]
+        ]
+    },
+    {
+        "id": "8f025a30.28ae98",
+        "type": "file in",
+        "z": "a313a88e.2c2148",
+        "name": "Right Phi",
+        "filename": "/tmp/rightPhi",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 360,
+        "y": 280,
+        "wires": [
+            [
+                "e3f91d2f.f8942",
+                "d62f1d75.d2a94"
+            ]
+        ]
+    },
+    {
+        "id": "e3f91d2f.f8942",
+        "type": "ui_gauge",
+        "z": "a313a88e.2c2148",
+        "name": "Right Phi",
+        "group": "f8559b06.b3d7d8",
+        "order": 2,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Angular Velocity",
+        "label": "Volts",
+        "format": "{{value}}",
+        "min": "-1.57",
+        "max": "1.57",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "9.5",
+        "seg2": "10.75",
+        "x": 600,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d62f1d75.d2a94",
+        "type": "ui_chart",
+        "z": "a313a88e.2c2148",
+        "name": "",
+        "group": "f8559b06.b3d7d8",
+        "order": 4,
+        "width": 5,
+        "height": 4,
+        "label": "Right Phi",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 600,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc820e09.34269",
+        "type": "inject",
+        "z": "bb7d51d0.c5feb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 280,
+        "wires": [
+            [
+                "28740baf.001494"
+            ]
+        ]
+    },
+    {
+        "id": "28740baf.001494",
+        "type": "file in",
+        "z": "bb7d51d0.c5feb",
+        "name": "Theta Dot",
+        "filename": "/tmp/thetaDot",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 440,
+        "y": 280,
+        "wires": [
+            [
+                "660ddb26.913c04",
+                "ae1e87c1.20c248"
+            ]
+        ]
+    },
+    {
+        "id": "660ddb26.913c04",
+        "type": "ui_gauge",
+        "z": "bb7d51d0.c5feb",
+        "name": "",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 2,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Theta Dot",
+        "label": "Volts",
+        "format": "{{value}}",
+        "min": "-1.57",
+        "max": "1.57",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "9.5",
+        "seg2": "10.75",
+        "x": 680,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ae1e87c1.20c248",
+        "type": "ui_chart",
+        "z": "bb7d51d0.c5feb",
+        "name": "",
+        "group": "af4b7aa5.f1ecc8",
+        "order": 4,
+        "width": 5,
+        "height": 4,
+        "label": "Theta Dot",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 680,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    }
+]

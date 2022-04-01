@@ -1,0 +1,4 @@
+192.168.8.1:3000
+Wifi Password:BeagleBone 
+
+Debian Password: temppwd
