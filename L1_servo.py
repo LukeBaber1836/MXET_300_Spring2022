@@ -1,9 +1,3 @@
-# This program offers functions for controlling servos on the blue
-# servo position is specified by "duty."  If the servo is a continuous
-# type, the duty will set the speed instead of the position. 
-# Uses rcpy library.  Documentation: sudo apt install autoconf-archive
-# PROGRAM REQUIRES SUDO. Last udpated 2020.10.08
-
 # Import external libraries
 import time, math
 import getopt, sys
@@ -27,20 +21,39 @@ servo.enable()		# Enables 6v rail on beaglebone blue
 clck1.start()		# Starts PWM
 clck2.start()
 
-def move1(angle):
-	srvo1.set(angle)
+def set_angle( angle ):		#input angle 0 - 180
+	pwm_val = 0
+	# For pwm -1.5 to 0
+	if angle <= 90:
+		# Scale degrees to pwm value
+		pwm_val = float(1.5/90) * angle - 1.5
+		srvo1.set(pwm_val)
+	# For pwm 0 to 1.5
+	else:
+		# Scale degrees to pwm value
+		angle = angle - 90
+		pwm_val = float(1.5/90) * angle
+		srvo1.set(pwm_val)
+		
+def set_origin():
+	# Make sure camera starts at orgin, 90 deg or PWM 0.
+	set_angle(90);
+
+# Protects servo from going out of range
+def check_angle( angle ):
+	if angle > 180 or angle < 0:
+		angle = 90
+	return angle
 	
 def move2(angle):
-	srvo2.set(angle)
+	srvo1.set(angle)
+	
 
 # THE SECTION BELOW WILL ONLY RUN IF L1_SERVO.PY IS CALLED DIRECTLY	 
-if __name__ == "__main__":
-	while True:
-		print("beginning servo loop")
-		while rcpy.get_state() != rcpy.EXITING: 	# keep running
-				print("move 1.5")
-				move1(1.5)	# Set servo duty (1.5 has no units, see library for details)
-				time.sleep(2)
-				print("move -1.5")
-				move1(-1.5)
-				time.sleep(2)
+# if __name__ == "__main__":
+#     # keep running
+# 	while rcpy.get_state() != rcpy.EXITING:
+# 		angle = 0
+# 		angle = input("Enter angle 0 - 180 degrees:  ")
+# 		angle_f = float(angle)
+# 		move1(angle_f)
