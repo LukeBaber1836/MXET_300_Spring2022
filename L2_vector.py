@@ -24,7 +24,6 @@ def getValid(scan):                                 # remove the rows which have
     n = output.T                                    # transpose the matrix
     return n
 
-
 def nearest(scan):                                  # find the nearest point in the scan
     dist = scan[:, 0]                               # store just first column
     column_mins = np.argmin(dist, axis=0)           # get index of min values along 0th axis (columns)
@@ -32,6 +31,12 @@ def nearest(scan):                                  # find the nearest point in 
     vec = scan[row_index, :]                        # return the distance and angle of the nearest object in scan
     return vec                                      # contains [r, alpha]
 
+def farthest(scan):                                 # find the nearest point in the scan
+    dist = scan[:, 0]                               # store just first column
+    column_maxs = np.argmax(dist, axis=0)           # get index of min values along 0th axis (columns)
+    row_index = column_maxs                         # index of the farthest distance
+    vec = scan[row_index, :]                        # return the distance and angle of the farthest object in scan
+    return vec                                      # contains [r, alpha]
 
 def polar2cart(r, alpha):                           # convert an individual vector to cartesian coordinates (in the robot frame)
     alpha = np.radians(alpha)                       # alpha*(np.pi/180) # convert to radians
@@ -40,18 +45,15 @@ def polar2cart(r, alpha):                           # convert an individual vect
     cart = np.round(np.array([x, y]), 3)            # vectorize and round
     return cart
 
-
 def rotate(vec, theta):                             # describe a vector in global coordinates by rotating from body-fixed frame
     c, s = np.cos(theta), np.sin(theta)             # define cosines & sines
     R = np.array(((c, -s), (s, c)))                 # generate a rotation matrix
     vecGlobal = np.matmul(R, vec)                   # multiply the two matrices
     return vecGlobal
 
-
 def sumVec(vec, loc):                               # add two vectors. (origin to robot, robot to obstacle)
     mySum = vec + loc                               # element-wise addition takes place
     return mySum                                    # return [x,y]
-
 
 def getNearest():                                   # combine multiple functions into one.  Call to get nearest obstacle.
     scan = lidar.polarScan()                        # get a reading in meters and degrees
@@ -59,9 +61,16 @@ def getNearest():                                   # combine multiple functions
     vec = nearest(valids)                           # find the nearest
     return vec                                      # pass the closest valid vector [m, deg]
 
+def getFarthest():
+    scan = lidar.polarScan()                        # get a reading in meters and degrees
+    valids = getValid(scan)                         # remove the bad readings
+    vec = farthest(valids)                          # find the nearest
+    return vec                                      # pass the closest valid vector [m, deg]
 
 if __name__ == "__main__":
     while True:
         myVector = getNearest()                                 # call the function which utilizes several functions in this program
+        myFar = getFarthest()
         print("\n The nearest object (m,deg):\n", myVector)     # print the result
+        print("\n The farthest object (m,deg):\n", myFar)     # print the result
         time.sleep(0.1)                                         # small delay
