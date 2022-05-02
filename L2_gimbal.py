@@ -37,6 +37,7 @@ def center_camera( current_angle ):
     else:
         # Base case
         print ("Centered")
+        return
 
 
 # Run to demonstrate gimbal tracking

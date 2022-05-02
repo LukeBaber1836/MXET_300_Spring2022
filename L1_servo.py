@@ -23,6 +23,7 @@ clck2.start()
 
 def set_angle( angle ):		#input angle 0 - 180
 	pwm_val = 0
+	angle = check_angle(angle)
 	# For pwm -1.5 to 0
 	if angle <= 90:
 		# Scale degrees to pwm value
@@ -45,15 +46,28 @@ def check_angle( angle ):
 		angle = 90
 	return angle
 	
-def move2(angle):
-	srvo1.set(angle)
+def right_rotate( current_angle ):
+	for x in range(23):
+		set_angle(current_angle)
+		current_angle = current_angle + 1
+		time.sleep(0.06)
+	return current_angle	
 	
-
-# THE SECTION BELOW WILL ONLY RUN IF L1_SERVO.PY IS CALLED DIRECTLY	 
-# if __name__ == "__main__":
-#     # keep running
-# 	while rcpy.get_state() != rcpy.EXITING:
-# 		angle = 0
-# 		angle = input("Enter angle 0 - 180 degrees:  ")
-# 		angle_f = float(angle)
-# 		move1(angle_f)
+def left_rotate( current_angle ):
+	for x in range(23):
+		set_angle(current_angle)
+		current_angle = current_angle - 1
+		time.sleep(0.06)
+	return current_angle
+	
+# # THE SECTION BELOW WILL ONLY RUN IF L1_SERVO.PY IS CALLED DIRECTLY	 
+if __name__ == "__main__":
+    # keep running
+	while rcpy.get_state() != rcpy.EXITING:
+		angle = 0
+		angle = input("Enter angle 0 - 180 degrees:  ")
+		angle  = int(angle)
+		set_angle(angle)
+		#angle = right_rotate(angle)
+		# angle_f = float(angle)
+		# move2(angle_f)
