@@ -6,13 +6,11 @@ import rcpy                 # Import rcpy library
 import color_tracking_v1 as color_t
 import L2_log as log
 
-
-def center_face( x_val, current_angle ):
-    # x_val = color_t.face_x()
+def center_face( current_angle ):
+    x_val = color_t.face_x()
     
     # Make sure object is detected
     if x_val is not None:
-        #print(x_val)
         # Move gimbal to recenter the object
         # To far left
         if x_val < 90:
@@ -62,8 +60,6 @@ def go():
         x_val = color_t.face_x( camera )
         curr_angle = center_face( x_val,  curr_angle )
         print( curr_angle )
-        #face_distance( width )
-        #print(width)
 
 
 if __name__ == "__main__":
@@ -75,8 +71,7 @@ if __name__ == "__main__":
     camera.set(4, 160)  
     
     while(1):
-        x_val = color_t.face_x( camera )
-        curr_angle = center_face( x_val,  curr_angle )
+        curr_angle = center_face( curr_angle )
         log.tmpFile(curr_angle, "servo.txt")
         print( curr_angle )
         #face_distance( width )

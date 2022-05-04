@@ -9,11 +9,9 @@ import L2_inverse_kinematics as inv
 import time
 import numpy as np
 
-targetDist = 4.0
+targetDist = 4.0  # Change to adjust the distance from the tracked person in feet
 
 def controlCheck():
-    
-    
     if lidar.tfluna_distance() > targetDist:            # check distance from tracked object                                     # stop left motor
         print('stopped')                                # tell the user wtf is going on
         return True

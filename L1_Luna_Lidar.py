@@ -1,7 +1,6 @@
 # 2022 MXET-300
 # Author: Luke Baber
 # TF-Luna Mini LiDAR wired to a BeagleBone Blue via UART
-
 import Adafruit_BBIO.UART as UART
 import numpy as np
 import serial
@@ -28,7 +27,6 @@ def tfluna_distance():
                 dist_feet = float(distance/100.0) * 3.28084
                 return dist_feet
                 
-
 def serOpen():
     ser.open() 
 

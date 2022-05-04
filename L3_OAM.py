@@ -23,13 +23,11 @@ import time
 def obstacle():
     read = vec.getNearest() # grabs nearest obstacle m deg
     far = vec.getFarthest() # grabs farthest obstacle m deg
-    
-    # ultrs.fall_detect() == True
-    # distCont.controlCheck() == True
-    
-    if (distCont.controlCheck() == False):
+
+    # Check if subject is not within range or there is a drop ahead
+    if ((distCont.controlCheck() == True) or (ultrs.fall_detect() == True)):
         #log.stringTmpFile("Fall Detected", "ult.txt")
-        log.stringTmpFile("Person is not in proper distance", "luna.txt")
+        #log.stringTmpFile("Person is not in proper distance", "luna.txt")
         myVelocities = np.array([0, 0]) #input your first pair
         myPhiDots = inv.convert(myVelocities)
         sc.driveOpenLoop(myPhiDots)
@@ -39,7 +37,7 @@ def obstacle():
     elif (read[0] < 0.40) and (-20 < read[1] < 20): # middle
         slowdown()
         middle()
-        log.stringTmpFile("No Fall Detected", "ult.txt")
+        #log.stringTmpFile("No Fall Detected", "ult.txt")
         print("object directly infront")
         if far[1] > 0:
             right()
@@ -52,21 +50,21 @@ def obstacle():
             log.stringTmpFile("SCUTTLE is turning right", "scuttle_motion.txt")
             print("adjusting to go right")
             
-    elif (read[0] < 0.30) and (-135 <= read[1] <= -20): # detects right moves left
+    elif (read[0] < 0.40) and (-135 <= read[1] <= -20): # detects right moves left
         slowdown()
         right()
         scuttle_angle = "left"
         log.stringTmpFile("SCUTTLE is turning left", "scuttle_motion.txt")
         print("moving right")
-        log.stringTmpFile("No Fall Detected", "ult.txt")
+        #log.stringTmpFile("No Fall Detected", "ult.txt")
 
-    elif (read[0] < 0.30) and (20 <= read[1] <= 135): # detects left moves right
+    elif (read[0] < 0.40) and (20 <= read[1] <= 135): # detects left moves right
         slowdown()
         left()
         scuttle_angle = "right"
         log.stringTmpFile("SCUTTLE is turning right", "scuttle_motion.txt")
         print("moving left")
-        log.stringTmpFile("No Fall Detected", "ult.txt")
+        #log.stringTmpFile("No Fall Detected", "ult.txt")
 
     else: # keeps moving forward
         myVelocities = np.array([0.4, 0])
@@ -79,7 +77,7 @@ def obstacle():
         log.stringTmpFile("No Fall Detected", "ult.txt")
 
     
-    log.stringTmpFile("Person is in proper distance", "luna.txt")
+    #log.stringTmpFile("Person is in proper distance", "luna.txt")
     log.tmpFile(far[1], "far_distance.txt")
     log.tmpFile(read[0], "clo_distance.txt")
     log.tmpFile(read[1], "clo_angle.txt")
@@ -120,7 +118,6 @@ def left(): #detects left moves right
     sc.driveOpenLoop(myPhiDots)
     time.sleep(1) # input your duration (s)
 
-
 def go():
     luna.serOpen()
     
@@ -128,14 +125,11 @@ def go():
         scuttle_angle = obstacle()
         print("Scuttle Heading Angle: ", scuttle_angle)
 
-        # dcJackVoltage = adc.getDcJack()                     # call the getDcJack function from within L1_adc.py
-        # print("DC Jack Voltage: ", dcJackVoltage)           # print the dc jack voltage to the terminal 
-        # print(" ")
-        # log.tmpFile(dcJackVoltage,"DC_Jack_Voltage")        # log the dc jack voltage to the tmp file directory
-        
-        # # time.sleep(0.2)
-        # time.sleep(1)
-        # print(2)
+        dcJackVoltage = adc.getDcJack()                     # call the getDcJack function from within L1_adc.py
+        print("DC Jack Voltage: ", dcJackVoltage)           # print the dc jack voltage to the terminal 
+        print(" ")
+        log.tmpFile(dcJackVoltage,"DC_Jack_Voltage")        # log the dc jack voltage to the tmp file directory
+        time.sleep(1)
 
 
 if __name__ == "__main__":
